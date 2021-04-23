@@ -21,7 +21,7 @@ export class JWTInterceptor implements HttpInterceptor {
       const token: string = this.store.selectSnapshot(AuthState.token);
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Token ${token}`
         }
       });
     }
@@ -36,8 +36,7 @@ export class JWTInterceptor implements HttpInterceptor {
   private catchTokenError(error: HttpErrorResponse): Observable<any> {
     if (error && error.status === 401) {
       this.store.dispatch(new Logout());
-      this.router.navigate(['/auth/login']);
-      this.notificationsService.show('Время токена истекло').subscribe();
+      this.notificationsService.show(error.message).subscribe();
     }
     throw error;
   }

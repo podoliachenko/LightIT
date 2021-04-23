@@ -4,11 +4,8 @@ import {Login, Logout, Registration, SetToken} from '../actions/auth.actions';
 import {tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
-import {AuthResponseModel} from '../../interfaces/auth';
+import {AuthResponseModel, AuthStateModel} from '../../interfaces/auth';
 
-export interface AuthStateModel {
-  token: string | null;
-}
 
 export const AUTH_STATE_TOKEN: StateToken = new StateToken<AuthStateModel>('auth');
 
@@ -16,7 +13,8 @@ export const AUTH_STATE_TOKEN: StateToken = new StateToken<AuthStateModel>('auth
 @State<AuthStateModel>({
   name: AUTH_STATE_TOKEN,
   defaults: {
-    token: null
+    token: null,
+    username: null
   }
 })
 @Injectable()
@@ -24,6 +22,12 @@ export class AuthState {
   @Selector()
   static token(state: AuthStateModel): string | null {
     return state.token;
+  }
+
+
+  @Selector()
+  static username(state: AuthStateModel): string | null {
+    return state.username;
   }
 
   @Selector()
@@ -42,7 +46,8 @@ export class AuthState {
     return this.authService.logIn(action.payload).pipe(
       tap((result: AuthResponseModel) => {
         ctx.patchState({
-          token: result.token
+          token: result.token,
+          username: action.payload.username
         });
       })
     );
@@ -53,7 +58,8 @@ export class AuthState {
     return this.authService.registration(action.payload).pipe(
       tap((result: AuthResponseModel) => {
         ctx.patchState({
-          token: result.token
+          token: result.token,
+          username: action.payload.username
         });
       })
     );
@@ -62,7 +68,8 @@ export class AuthState {
   @Action(Logout)
   logout(ctx: StateContext<AuthStateModel>): void {
     ctx.setState({
-      token: null
+      token: null,
+      username: null
     });
   }
 

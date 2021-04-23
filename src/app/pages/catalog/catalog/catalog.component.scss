@@ -1,0 +1,25 @@
+.tui-container {
+  margin-top: 40px;
+  display: flex;
+}
+
+.product {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.products {
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &.opened {
+    width: 300px;
+    flex-direction: column;
+
+  }
+}
+
+.reviews {
+  padding-left: 40px;
+  width: 100%;
+}

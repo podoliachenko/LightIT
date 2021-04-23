@@ -1,0 +1,17 @@
+.review {
+  margin-bottom: 20px;
+}
+
+.create-review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  tui-text-area {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  ngx-star-rating {
+    margin-bottom: 20px;
+  }
+}

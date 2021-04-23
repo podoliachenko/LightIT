@@ -1,0 +1,8 @@
+<div class="tui-container">
+  <div class="tui-row products" [class.opened]="opened$ | async">
+    <lt-product-item class="product" *ngFor="let product of products$ | async" [product]="product"></lt-product-item>
+  </div>
+  <div class="reviews" *ngIf="opened$ | async">
+    <router-outlet></router-outlet>
+  </div>
+</div>

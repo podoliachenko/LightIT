@@ -1,0 +1,25 @@
+<div class="reviews">
+  <form class="create-review" [formGroup]="form" *ngIf="isAuthenticated$ | async">
+    <ngx-star-rating formControlName="rate"></ngx-star-rating>
+    <tui-text-area
+      formControlName="text"
+      [expandable]="true"
+    >
+      Type your review...
+    </tui-text-area>
+    <button
+      tuiButton
+      type="button"
+      size="m"
+      appearance="primary"
+      *ngIf="id$ | async as id"
+      (click)="submit(id)"
+      [disabled]="form.invalid"
+    >
+      Submit Review
+    </button>
+  </form>
+  <div class="review" *ngFor="let review of reviews$ | async">
+    <lt-review-item [review]="review"></lt-review-item>
+  </div>
+</div>

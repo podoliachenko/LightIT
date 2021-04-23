@@ -13,10 +13,10 @@ export class AuthService {
   }
 
   logIn(payload: LoginPayload): Observable<AuthResponseModel> {
-    return this.http.post<AuthResponseModel>(`${environment.API}/login`, payload);
+    return this.http.post<AuthResponseModel>(`${environment.API}/api/login/`, payload);
   }
 
   registration(payload: RegistrationPayload): Observable<AuthResponseModel> {
-    return this.http.post<AuthResponseModel>(`${environment.API}/register`, payload);
+    return this.http.post<AuthResponseModel>(`${environment.API}/api/register/`, payload);
   }
 }

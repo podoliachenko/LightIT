@@ -1,10 +1,10 @@
 <div class="header">
   <div class="tui-container tui-container_adaptive">
     <div class="tui-row tui-row_adaptive">
-      <div class="logo tui-col_xs-4 tui-col_lg-4 tui-col_sm-4 tui-col_s-4 tui-col_md-4">Catalog</div>
+      <div class="logo tui-col_xs-4 tui-col_lg-4 tui-col_sm-4 tui-col_s-4 tui-col_md-4" routerLink="/catalog">Catalog</div>
       <div class="user tui-col_xs-8 tui-col_lg-8 tui-col_sm-8 tui-col_s-8 tui-col_md-8"
-           *ngIf="isAuthenticated$ | async">
-        <!--<ng-container *ngIf="username$ | async as username">
+           *ngIf="isAuthenticated$ | async; else loginTemplate">
+        <ng-container *ngIf="username$ | async as username">
           <img class="avatar"
                src="https://eu.ui-avatars.com/api/?background=526ed3&color=fff&name={{username}}&length=1" alt="">
           <tui-tag status="primary" size="m" [value]="username"></tui-tag>
@@ -17,10 +17,27 @@
               appearance="flat"
               iconRight="tuiIconLogoutLarge"
               (click)="logout()"
-            >Logout</button>
+            >Logout
+            </button>
           </div>
-        </ng-container>-->
+        </ng-container>
       </div>
+      <ng-template #loginTemplate>
+        <div class="user tui-col_xs-8 tui-col_lg-8 tui-col_sm-8 tui-col_s-8 tui-col_md-8">
+          <div class="login">
+            <button
+              tuiButton
+              type="button"
+              size="m"
+              class="login-button"
+              appearance="flat"
+              iconRight="tuiIconLoginLarge"
+              (click)="login()"
+            >Login
+            </button>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -1,0 +1,17 @@
+<div>
+  <a
+    size="l"
+    tuiIsland
+  >
+    <div class="tui-island__content">
+      <h3 class="tui-island__title">{{review.created_by.username}}    <span class="rating"> <ngx-star-rating
+        [formControl]="rating" [disabled]="true" [id]="'review' + review.id"></ngx-star-rating></span></h3>
+      <p class="tui-island__paragraph">
+        <span class="created_at">{{review.created_at | date: 'dd.MM.YYYY HH:mm'}}</span>
+        <span class="text">
+          {{review.text}}
+            </span>
+      </p>
+    </div>
+  </a>
+</div>

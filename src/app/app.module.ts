@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {JWTInterceptor} from './core/interceptors/jwt/jwt.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {iconsPathFactory, TUI_ICONS_PATH, TuiDialogModule, TuiNotificationsModule, TuiRootModule} from '@taiga-ui/core';
+import {iconsPathFactory, TUI_ICONS_PATH, TuiButtonModule, TuiDialogModule, TuiNotificationsModule, TuiRootModule} from '@taiga-ui/core';
 import {AUTH_STATE_TOKEN, AuthState} from './core/store/states/auth.state';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {environment} from '../environments/environment';
@@ -13,6 +13,7 @@ import {NgxsModule} from '@ngxs/store';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './components/header/header.component';
 import { ProductItemComponent } from './shared/components/product-item/product-item.component';
+import {TuiTagModule} from '@taiga-ui/kit';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { ProductItemComponent } from './shared/components/product-item/product-i
     NgxsStoragePluginModule.forRoot({
       key: [AUTH_STATE_TOKEN]
     }),
+    TuiTagModule,
+    TuiButtonModule,
   ],
   providers: [
     {

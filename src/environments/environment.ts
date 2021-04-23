@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'http://smktesting.herokuapp.com/api'
+  API: 'http://smktesting.herokuapp.com'
 };
 
 /*

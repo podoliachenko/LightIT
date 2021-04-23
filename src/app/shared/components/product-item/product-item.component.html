@@ -1,0 +1,21 @@
+<div >
+  <a
+    size="l"
+    [routerLink]="['/catalog/product', product.id]"
+    tuiIsland
+    routerLinkActive="active"
+    [hoverable]="true"
+  >
+    <div class="tui-island__content">
+      <figure class="tui-island__figure">
+        <img [src]="product.img" [alt]="product.title">
+      </figure>
+      <div>
+        <h3 class="tui-island__title">{{product.title}}</h3>
+        <p class="tui-island__paragraph">
+          {{product.text}}
+        </p>
+      </div>
+    </div>
+  </a>
+</div>

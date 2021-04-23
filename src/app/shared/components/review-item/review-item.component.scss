@@ -1,0 +1,28 @@
+.tui-island__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 16px;
+  justify-content: space-between;
+  .rating {
+    transform: scale(0.4) translateX(180px);
+    pointer-events: none;
+  }
+}
+
+.tui-island__content {
+  flex-direction: column;
+}
+
+.tui-island__paragraph {
+  display: flex;
+  flex-direction: column;
+
+  .text {
+    margin-top: 16px;
+  }
+
+  .created_at {
+    font-size: 12px;
+  }
+}

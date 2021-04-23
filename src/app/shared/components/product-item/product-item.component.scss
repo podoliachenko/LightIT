@@ -1,0 +1,23 @@
+.tui-island__paragraph {
+  max-height: 48px;
+}
+
+.tui-island__content {
+  flex-direction: row-reverse;
+  margin-right: 36px;
+}
+
+.tui-island__figure {
+  margin-left: 0;
+  margin-right: 6px;
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+.active {
+  box-shadow: 0 12px 36px rgb(0 0 0 / 20%);
+  transform: translateY(-4px);
+}

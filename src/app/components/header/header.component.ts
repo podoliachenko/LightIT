@@ -14,12 +14,16 @@ import {Logout} from '../../core/store/actions/auth.actions';
 export class HeaderComponent {
 
   @Select(AuthState.isAuthenticated) isAuthenticated$: Observable<boolean>;
+  @Select(AuthState.username) username$: Observable<string>;
 
   constructor(private store: Store, private router: Router) {
   }
 
   logout(): void {
     this.store.dispatch(new Logout());
+  }
+
+  login(): void {
     this.router.navigate(['/auth/login']);
   }
 }

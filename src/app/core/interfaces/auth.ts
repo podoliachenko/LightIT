@@ -9,3 +9,8 @@ export interface AuthResponseModel {
   success: boolean;
   token: string;
 }
+
+export interface AuthStateModel {
+  token?: string;
+  username?: string;
+}
