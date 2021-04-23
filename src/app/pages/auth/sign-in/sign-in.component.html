@@ -1,0 +1,25 @@
+<div class="auth-container">
+  <h1 class="title">Login</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <tui-input formControlName="username" tuiTextfieldSize="m" class="form-control">
+      Username
+    </tui-input>
+    <tui-input-password formControlName="password" tuiTextfieldSize="m" class="form-control">
+      Password
+    </tui-input-password>
+
+    <button
+      [disabled]="form.invalid"
+      tuiButton
+      type="submit"
+      size="m"
+      class="submit"
+      [showLoader]="inProgress"
+    >
+      Login
+    </button>
+  </form>
+  <div class="link">
+    <a routerLink="/auth/registration" tuiLink>Registration</a>
+  </div>
+</div>
