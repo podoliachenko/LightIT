@@ -49,9 +49,9 @@ export class SignInComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         () => {
-          this.router.navigate(['/catalog']);
+            this.router.navigate(['/catalog']);
         }, (error: HttpErrorResponse) => {
-          this.notificationsService.show(error.message, {status: TuiNotification.Error})
+          this.notificationsService.show(error.error, {status: TuiNotification.Error})
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe();
         });

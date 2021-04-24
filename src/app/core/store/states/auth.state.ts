@@ -5,6 +5,7 @@ import {tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 import {AuthResponseModel, AuthStateModel} from '../../interfaces/auth';
+import {HttpErrorResponse} from '@angular/common/http';
 
 
 export const AUTH_STATE_TOKEN: StateToken = new StateToken<AuthStateModel>('auth');
@@ -45,10 +46,14 @@ export class AuthState {
   login(ctx: StateContext<AuthStateModel>, action: Login): Observable<AuthResponseModel> {
     return this.authService.logIn(action.payload).pipe(
       tap((result: AuthResponseModel) => {
-        ctx.patchState({
-          token: result.token,
-          username: action.payload.username
-        });
+        if (result.success) {
+          ctx.patchState({
+            token: result.token,
+            username: action.payload.username
+          });
+        } else {
+          throw new HttpErrorResponse({error: result.message});
+        }
       })
     );
   }

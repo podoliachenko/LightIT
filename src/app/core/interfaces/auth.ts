@@ -8,6 +8,7 @@ export type RegistrationPayload = LoginPayload;
 export interface AuthResponseModel {
   success: boolean;
   token: string;
+  message?: string;
 }
 
 export interface AuthStateModel {
